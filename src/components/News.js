@@ -69,20 +69,24 @@ const News = (props) => {
         loader={<Spinner />}
       >
         <div className="row">
-          {articles.map((element) => {
-            return (
-              <div className=" col-sm-6 col-md-4  col-xs-12" key={element.url}>
-                <NewsItem
-                  title={element.title}
-                  description={element.description}
-                  imageUrl={element.urlToImage}
-                  newsUrl={element.url}
-                  author={element.author}
-                  date={element.publishedAt}
-                />
-              </div>
-            );
-          })}
+          {articles &&
+            articles.map((element) => {
+              return (
+                <div
+                  className=" col-sm-6 col-md-4  col-xs-12"
+                  key={element.url}
+                >
+                  <NewsItem
+                    title={element.title}
+                    description={element.description}
+                    imageUrl={element.urlToImage}
+                    newsUrl={element.url}
+                    author={element.author}
+                    date={element.publishedAt}
+                  />
+                </div>
+              );
+            })}
         </div>
       </InfiniteScroll>
     </div>
